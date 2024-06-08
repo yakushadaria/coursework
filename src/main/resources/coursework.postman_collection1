@@ -1,0 +1,526 @@
+{
+	"info": {
+		"_postman_id": "f56acb25-d8a6-49f0-9849-ab092a8c1071",
+		"name": "coursework",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33991441"
+	},
+	"item": [
+		{
+			"name": "1.Add clients",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"name\": \"Ivan\",\r\n    \"surname\": \"Melnykov\",\r\n    \"contactNumber\": \"+380672485697\",\r\n    \"email\": \"ivan@gmail.com\"\r\n  },\r\n  {\r\n    \"name\": \"Alexander\",\r\n    \"surname\":\"Petrov\",\r\n    \"contactNumber\": \"+380687598231\",\r\n    \"email\": \"petrov@gmail.com\"\r\n  },\r\n\r\n  {\r\n    \"name\": \"Kate\",\r\n    \"surname\":\"Ivanova\",\r\n    \"contactNumber\": \"+380987532971\",\r\n    \"email\": \"kate@gmail.com\"\r\n  }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.Add parcels",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"weight\": 2.5,\r\n    \"shipmentDate\": \"2024-04-22T10:30:00\",\r\n    \"destination\": \"New York\",\r\n    \"description\":\"glass\"\r\n  },\r\n\r\n  {\r\n    \"weight\": 5.5,\r\n    \"shipmentDate\": \"2024-04-22T10:30:00\",\r\n    \"destination\": \"Paris\",\r\n    \"description\":\"glass\"\r\n  },\r\n\r\n  {\r\n    \"weight\": 7.3,\r\n    \"shipmentDate\": \"2024-04-22T17:00:00\",\r\n    \"destination\": \"New York\",\r\n    \"description\":\"glass\"\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/parcel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parcel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Add order",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n{\r\n  \"orderDate\": \"2024-06-02T10:30:00\",\r\n  \"clientId\": 1,\r\n  \"parcelId\": 1\r\n},\r\n\r\n  {\r\n    \"orderDate\": \"2024-06-02T11:00:00\",\r\n    \"clientId\": 2,\r\n    \"parcelId\": 2\r\n  },\r\n\r\n    {\r\n    \"orderDate\": \"2024-05-29T12:30:41\",\r\n    \"clientId\": 1,\r\n    \"parcelId\": 3\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Search client for surname",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/clients/surname?surname=Petrov",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clients",
+						"surname"
+					],
+					"query": [
+						{
+							"key": "surname",
+							"value": "Petrov"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Get all orders with details",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/details",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. Get order by id",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. Update client data",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"name\": \"Alexander\",\r\n    \"surname\":\"Petrov\",\r\n    \"contactNumber\": \"+7 (987) 654-3210\",\r\n    \"email\": \"com\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clients/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clients",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. Delete order by id",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9. Delete client by id",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/clients/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clients",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10.Receiving all orders of a specific client by id",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/ByClientsId/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"ByClientsId",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11. Finding customers by order time period",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/clients/orders/period?startDate=2024-06-01T00:00:00&endDate=2024-06-03T23:59:59\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clients",
+						"orders",
+						"period"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2024-06-01T00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": "2024-06-03T23:59:59\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12. Output of orders and parcels weighing less than 5 kg",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/withParcelWeightLessThan5kg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"withParcelWeightLessThan5kg"
+					],
+					"query": [
+						{
+							"key": "endDateTime",
+							"value": "2024-06-01T23:59:59",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13. Display all orders for a customer by ID with detailed information about order and customer in DTO format",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/ordersByClient/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"ordersByClient",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
